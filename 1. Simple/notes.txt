@@ -1,0 +1,29 @@
+S3 bucket - policy permission
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::staticweb/*"
+            ]
+        }
+    ]
+}
+
+Create new role(add permisson):
+- Cloudwatch
+- DynamoDb 
+
+Lambda response header & api gateway request & response header update:
+- Access-Control-Allow-Headers : 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'
+- Access-Control-Allow-Origin : '*'
+- Access-Control-Allow-Methods : 'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'
+- Access-Control-Allow-Credentials : 
+
+Lambda integration must be proxy(integration).

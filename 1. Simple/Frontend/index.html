@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend</title>
+</head>
+<script>
+    window.addEventListener('load', () => {
+        var saveButton = document.getElementById('save');
+        saveButton.addEventListener('click', async function() {
+            var name = document.getElementById('name').value
+            var age = document.getElementById('age').value
+            
+            const rawResponse = await fetch('https://qky1srqkh4.execute-api.us-east-2.amazonaws.com/Dev/person', {
+                method: 'POST',
+                headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({name: name, age: age})
+            });
+            const content = await rawResponse.json();
+            console.log(content)
+        });
+    })
+</script>
+<body>
+    <center>
+        <h1>Simple Form</h1>
+        <label>Name :</label>
+        <input type="text" id="name" name="txtName" />
+
+        <label>Age :</label>
+        <input type="number" id="age" name="txtAge" />
+
+        <input type="button" id="save" value="Save" />
+    </center>
+</body>
+</html>
