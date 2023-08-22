@@ -1,0 +1,5 @@
+Create virtual private network cloud:
+1. Create VPC - CIDR 
+2. Create Subnets 
+3. Create Internet gateway
+4. Create Route Table -> add route 0.0.0.0/0 and select internet gateway(created one) -> add public subnet
